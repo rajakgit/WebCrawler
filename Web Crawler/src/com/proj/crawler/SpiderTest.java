@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class SpiderTest
 {
     /**
-     * This is our test. It creates a spider (which creates spider legs) and crawls the web.
+     * This is test class. It creates a spider (which creates spider legs) and crawls the web.
      * 
      * @param args - URL to be passed in command line
      *            
@@ -14,8 +14,8 @@ public class SpiderTest
     {
         Spider spider = new Spider();
         ArrayList<String> listOfUrls = new ArrayList<String>();
-        
-        if (args.length != 2)
+            
+        if (args.length < 2)
         	throw new IllegalArgumentException("Minimum number of arguments should be 2. One is URL(s) and another is word to search");
               
         for(String strUrl:args)

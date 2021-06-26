@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Spider
 {
-  private static final int MAX_PAGES_TO_SEARCH = 10;
+  private static final int MAX_PAGES_TO_SEARCH = 20;
   private Set<String> pagesVisited = new HashSet<String>();
   private List<String> pagesToVisit = new LinkedList<String>();
 
@@ -37,13 +37,12 @@ public class Spider
           {
               currentUrl = this.nextUrl();
           }
-          leg.crawl(currentUrl); // Lots of stuff happening here. Look at the crawl method in
-                                 // SpiderLeg
+          leg.crawl(currentUrl);
           boolean success = leg.searchForWord(searchWord);
           if(success)
           {
               System.out.println(String.format("**Success** Word %s found at %s", searchWord, currentUrl));
-        //      break;
+              break;
           }
           this.pagesToVisit.addAll(leg.getLinks());
       }
